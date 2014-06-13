@@ -31,7 +31,11 @@ int main()
         if(numero<0)
             numero=-numero;
         numeroRes=convertirDec(numero,base);
-        printf("\"%d\" (10) = \"%s\" (%d)\n",numero,numeroRes,base);
+        if(!numeroRes)
+            printf("No se pudo obtener la conversion de %d\n",numero);
+        else
+            printf("\"%d\" (10) = \"%s\" (%d)\n",numero,numeroRes,base);
+        free(numeroRes);
         printf("Presione una tecla para continuar...");
         getch();
         system("cls");
